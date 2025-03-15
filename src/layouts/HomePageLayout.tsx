@@ -1,6 +1,6 @@
 "use client";
 import { BoxRevalStory } from "@/components/custom/BoxRevalStory";
-import { DockBar } from "@/components/custom/Dock";
+// import { ShareSocials } from "@/components/custom/Dock";
 import { FeaturesSection } from "@/components/custom/Features";
 import { TerminalStory } from "@/components/custom/TerminalStory";
 import { AuroraText } from "@/components/magicui/aurora-text";
@@ -27,9 +27,9 @@ export default function HomePageLayout() {
             <InteractiveHoverButton className='bg-transparent'>Let&apos;s watch together ✨</InteractiveHoverButton>
           </div>
         </main>
-        <div className='absolute bottom-10 left-0 right-0'>
-          <DockBar />
-        </div>
+        {/* <div className='absolute bottom-10 left-0 right-0'>
+          <ShareSocials />
+        </div> */}
       </div>
       <div className='h-screen flex items-center justify-center px-20'>
         <FeaturesSection />
