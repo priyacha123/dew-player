@@ -6,6 +6,7 @@ import { TerminalStory } from "@/components/custom/TerminalStory";
 import { AuroraText } from "@/components/magicui/aurora-text";
 import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
 import { LineShadowText } from "@/components/magicui/line-shadow-text";
+import Link from "next/link";
 // import Image from "next/image";
 
 export default function HomePageLayout() {
@@ -24,7 +25,9 @@ export default function HomePageLayout() {
             </LineShadowText>{" "}
           </h1>
           <div className='flex items-center justify-center w-full'>
-            <InteractiveHoverButton className='bg-transparent'>Let&apos;s watch together ✨</InteractiveHoverButton>
+            <Link href={"/upload"}>
+              <InteractiveHoverButton className='bg-transparent'>Let&apos;s watch together ✨</InteractiveHoverButton>
+            </Link>
           </div>
         </main>
         {/* <div className='absolute bottom-10 left-0 right-0'>
