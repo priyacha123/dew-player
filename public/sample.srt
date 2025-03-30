@@ -1,0 +1,11 @@
+1
+00:00:00,000 --> 00:00:03,000
+Welcome to our video player demo!
+
+2
+00:00:03,000 --> 00:00:06,000
+This player supports both SRT and VTT formats
+
+3
+00:00:06,000 --> 00:00:09,000
+You can change the font size, color, and background
