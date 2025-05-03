@@ -5,6 +5,7 @@ import "./globals.css";
 import Navbar from "@/components/custom/Navbar";
 import Footer from "@/components/custom/Footer";
 import { UploadProvider } from "@/store/upload-context";
+import VideoContextProvider from "@/app/screen/components/VideoContextProvider/VideoContextProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,9 +32,11 @@ export default function RootLayout({
       <html lang='en'>
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
           <UploadProvider>
-            <Navbar />
-            {children}
-            <Footer />
+            <VideoContextProvider>
+              <Navbar />
+              {children}
+              <Footer />
+            </VideoContextProvider>
           </UploadProvider>
         </body>
       </html>
