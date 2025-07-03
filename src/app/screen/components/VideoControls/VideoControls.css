@@ -114,6 +114,12 @@
   justify-content: space-around;
   align-items: center;
 }
+.video-time {
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
 .time {
   color: white;
   padding-right: 15px;
