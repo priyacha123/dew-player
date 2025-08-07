@@ -37,12 +37,7 @@ function VideoPlayer(props: VideoPlayerProps) {
       track.default = true;
       video.src = videoSrc;
       video.playbackRate = 1
-<<<<<<< HEAD
       video.loop = true 
-=======
-      video.requestPictureInPicture()
-      video.loop = true
->>>>>>> 502e213 (feat: add picture-in-picture feature)
       // video.muted = true;
       track.addEventListener("load", () => {
         if (video.textTracks.length > 0) {

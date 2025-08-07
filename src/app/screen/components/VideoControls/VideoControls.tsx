@@ -10,12 +10,9 @@ import {
   Captions,
   CaptionsOffIcon,
   PictureInPicture,
-<<<<<<< HEAD
   SkipForwardIcon,
   SkipBackIcon,
   TimerIcon,
-=======
->>>>>>> 502e213 (feat: add picture-in-picture feature)
   // Square,
 } from "lucide-react";
 import { secondsToTime } from "../CustomVideoControls/time";
@@ -162,28 +159,10 @@ const VideoControls = (props: VideoControlsProps) => {
     setIsMuted(video.volume === 0);
   };
 
-<<<<<<< HEAD
   // picture-in-picture feature
   function requestPictureInPicture() {
     if (document.pictureInPictureEnabled) {
       video.requestPictureInPicture();
-=======
-function requestPictureInPicture() {
-  if (document.pictureInPictureEnabled) {
-    video.requestPictureInPicture();
-  } else {
-    console.log("Your browser cannot use picture-in-picture right now");
-  }
-}
-
-
-
-  const toggleFullscreen = () => {
-    if (!controls.current) return;
-    if (document.fullscreenElement === null) {
-      videoContainer.requestFullscreen();
-      controls.current.style.top = "90%";
->>>>>>> 502e213 (feat: add picture-in-picture feature)
     } else {
       console.log("Your browser cannot use picture-in-picture right now");
     }
@@ -308,12 +287,6 @@ function requestPictureInPicture() {
             </button>
             <button className="pip" onClick={requestPictureInPicture}>
               <PictureInPicture size={20} color="#ffffff" />
-<<<<<<< HEAD
-=======
-            </button>
-            <button className="setting">
-              <Settings size={20} color="#ffffff" />
->>>>>>> 502e213 (feat: add picture-in-picture feature)
             </button>
             <button onClick={toggleSetting} className="setting">
               <TimerIcon size={20} color="#ffffff" />
