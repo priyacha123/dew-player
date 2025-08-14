@@ -88,7 +88,7 @@
   transform: rotate(180deg);
 }
 .progress-bar:hover {
-  height: 1px;
+  height: 5px;
 }
 
 .progress-fill {

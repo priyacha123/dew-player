@@ -187,10 +187,6 @@ const VideoControls = (props: VideoControlsProps) => {
         document.exitFullscreen();
         // controls.current.style.top = "";
       }
-<<<<<<< HEAD
-=======
-    });
->>>>>>> 4271fb6 (feat: add different speed options feature)
     setIsFullscreen(!isFullscreen);
   };
 
