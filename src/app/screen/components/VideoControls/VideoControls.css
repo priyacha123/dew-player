@@ -1,101 +1,233 @@
 .controls {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
-    height: 42px;
-    width: 95%;
-    max-width: 650px;
-    padding: 10px;
-    position: absolute;
-    top: 79%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-.control-button {
-    background-repeat: no-repeat;
-    border: none;
-    overflow: hidden;
-    background: none;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    outline: none;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-}
-.control-button svg {
-    width: 15px;
-}
-.controls-grid {
-    display: grid;
-    grid-template-columns: 2fr repeat(5, 1fr);
-    margin-top: 16px;
-}
-.volume {
-    margin-top: 9px;
-}
-.progress-bar {
-    width: 100%;
-    align-items: center;
-    height: 3px;
-    margin-top: 10px;
-    background-color: gray;
-    display: flex;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    cursor: pointer;
-    transition: all 0.2s;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
+  /* height: 65px; */
+  width: 90vw;
+  /* max-width: 650px; */
+  padding: 10px;
+  position: absolute;
+  top: 81%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  transition: opacity 0.3s ease;
 }
 
+.controls.hide {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.control-button {
+  background-repeat: no-repeat;
+  border: none;
+  overflow: hidden;
+  background: none;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+.control-button svg {
+  width: 17px;
+}
+.controls-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+.volume {
+  writing-mode: vertical-lr;
+  margin-top: 9px;
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  -webkit-appearance: slider-vertical;
+}
+.progress-bar {
+  width: 97%;
+  align-items: center;
+  height: 3px;
+  margin: 15px 10px 0 10px;
+  background-color: gray;
+  display: flex;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+/* volume-slider display on hover */
+.volume-slider {
+  position: absolute;
+  bottom: 100%;
+  margin-left: 17px;
+  transform: translateX(-50%);
+  display: none;
+  padding: 13px;
+  border-radius: 5px;
+  z-index: 10;
+  width: 2vw;
+  border: 2px solid rgb(45, 43, 43);
+  background-color: rgb(24, 23, 23);
+}
+
+.volume:hover .volume-slider {
+  display: block;
+}
+.volume-slider input[type="range"] {
+  writing-mode: vertical-lr;
+  direction: ltr;
+  width: 3px;
+  height: 110px;
+  transform: rotate(180deg);
+}
 .progress-bar:hover {
-    height: 5px;
+  height: 5px;
 }
 
 .progress-fill {
-    height: 100%;
-    width: 50%;
-    background-color: pink;
-    transition: all 0.1s;
+  height: 100%;
+  width: 50%;
+  background-color: pink;
+  transition: all 0.1s;
+}
+.left-track{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 2vw;
 }
 
 .click {
-    cursor: pointer;
+  cursor: pointer;
+}
+.video-time {
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 .time {
-    font-size: 13px;
+  color: white;
+  padding-right: 15px;
 }
-input[type='range'] {
-    -webkit-appearance: none;
-    appearance: none;
-    height: 3px;
-    border-radius: 4px;
-    margin-bottom: 15px;
-    outline: none;
-    cursor: pointer;
+.volume {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
-input[type='range']::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    background-color: pink;
-    height: 15px;
-    width: 15px;
-    border-radius: 15px;
-    cursor: pointer;
+.mute-video {
+  padding-right: 15px;
+  padding-bottom: 5px;
+}
+.play-pause {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* align-content: center; */
+  /* padding-right: 12vw; */
+}
+.play {
+  padding: 0 2vw;
+}
+/* .pause {
+  padding-left: 2vw;
+} */
+.subtitleBtn{
+  border: 2px solid white;
+  padding: 0 1px;
+  font-size: 11px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+.setting{
+  margin-left: 5px;
+}
+.right-track {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr repeat(3, 1fr);
+  margin-right: 15px;
+}
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 3px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  background-color: white;
+  align-items: center;
+  justify-content: center;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background-color: pink;
+  height: 15px;
+  width: 15px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+/* setting button option */
+.setting{
+  position: relative;
+}
+
+.setting-options {
+  position: absolute;
+  bottom: 90%; /* Show above the settings icon */
+  right: 0;
+  background: rgb(112, 123, 112);
+  border-radius: 6px;
+  padding: 8px;
+  gap: 6px;
+  width: 300px;
+  height: 200px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  z-index: 100;
+  backdrop-filter: blur(4px);
+  text-align: left;
+}
+
+.s-header {
+display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border-bottom: 2px black solid;
+  padding-bottom: 5px;
 }
 
 /* mobile view */
 @media screen and (max-width: 720px) {
-    .controls {
-        width: 90%;
-        top: 49%;
-        left: 49.9%;
-    }
+  .controls {
+    width: 85%;
+    top: 48%;
+    /* left: 49.9%; */
+  }
+  .volume-slider {
+  width: 5vw;
+}
 }
 
 /* tablet view */
-@media screen and (min-device-width: 600px) and (max-device-width: 1280px) {
-    .controls {
-        width: 90%;
-        top: 49%;
-        left: 49.9%;
-    }
+@media screen and (min-device-width: 700px) and (max-device-width: 1280px) {
+  .controls {
+    width: 90%;
+    top: 55%;
+    left: 49.9%;
+  }
+    .volume-slider {
+  width: 4vw;
+}
 }

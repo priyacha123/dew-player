@@ -9,9 +9,9 @@ export type Amplifier = {
 export function getAmplifier(
     setVideo: React.Dispatch<React.SetStateAction<HTMLVideoElement | null>>
 ): Amplifier {
-    const AvailableContext = window.AudioContext || window.webkitAudioContext;
+    const AvailableContext = window.AudioContext
     const context = new AvailableContext();
-    let video = document.createElement('video');
+    const video = document.createElement('video');
     const result = {
         context,
         source: context.createMediaElementSource(video),

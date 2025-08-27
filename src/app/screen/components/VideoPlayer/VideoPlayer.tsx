@@ -13,8 +13,10 @@ type VideoPlayerProps = {
 function VideoPlayer(props: VideoPlayerProps) {
   const { videoSrc, subtitleSrc, videoName } = props;
   const [video, setVideo] = useState<HTMLVideoElement | null>(null);
-  const [keyboardControls, setKeyboardControls] = useState<React.JSX.Element | null>(null);
-  const [videoPlayerControls, setVideoControls] = useState<React.JSX.Element | null>(null);
+  const [keyboardControls, setKeyboardControls] =
+    useState<React.JSX.Element | null>(null);
+  const [videoPlayerControls, setVideoControls] =
+    useState<React.JSX.Element | null>(null);
 
   const videoContainer = useRef<HTMLDivElement>(null);
 
@@ -25,25 +27,41 @@ function VideoPlayer(props: VideoPlayerProps) {
         return;
       }
     }
-    setKeyboardControls(<KeyboardVideoControls video={video} setVideo={setVideo} />);
+    setKeyboardControls(
+      <KeyboardVideoControls video={video} setVideo={setVideo} />
+    );
     if (video) {
       const track = document.createElement("track");
       track.kind = "subtitles";
       track.src = subtitleSrc;
       track.default = true;
       video.src = videoSrc;
-      video.autoplay = true;
+      video.playbackRate = 1
+      video.loop = true 
+      // video.muted = true;
+      track.addEventListener("load", () => {
+        if (video.textTracks.length > 0) {
+          video.textTracks[0].mode = "showing";
+        }
+      });
+
       video.appendChild(track);
     }
 
     if (video && videoContainer.current) {
       videoContainer.current.appendChild(video);
-      setVideoControls(<VideoControls videoName={videoName} video={video} videoContainer={videoContainer.current} />);
+      setVideoControls(
+        <VideoControls
+          videoName={videoName}
+          video={video}
+          videoContainer={videoContainer.current}
+        />
+      );
     }
   }, [videoContainer, video, subtitleSrc]);
 
   return (
-    <div className='VideoPlayer' ref={videoContainer}>
+    <div className="VideoPlayer" ref={videoContainer}>
       {videoPlayerControls}
       {keyboardControls}
     </div>

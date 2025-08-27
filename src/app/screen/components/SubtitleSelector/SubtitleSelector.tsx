@@ -1,10 +1,17 @@
 import React, { useRef } from "react";
 import srt2vtt from "./srt2vtt";
 import { useVideoContext } from "../VideoContextProvider/VideoContextProvider";
+// import { Uploader } from "@/components/ui/uploader";
+// import { useUpload } from "@/store/upload-context";
 
 // type SubtitleSelectorProps = { onSubtitlePicked: (v: string) => void };
 
 function SubtitleSelector() {
+    // const {
+    //   subtitleFile,
+    //   subtitleError,
+    //   setSubtitleFile,
+    // } = useUpload();
   const { setSelectedVideo } = useVideoContext();
   const fileField = useRef<HTMLInputElement>(null);
   const onClick = () => {
@@ -53,9 +60,21 @@ function SubtitleSelector() {
 
   return (
     <>
-      <button onClick={onClick} className='default-button'>
+      <button onClick={onClick} className='default-button bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded m-5'>
         Add Subtitle file
       </button>
+      {/* <Uploader
+        accept={{
+          "text/plain": [".srt", ".vtt"],
+        }}
+        maxSize={1024 * 1024 * 10} // 10MB
+        onUpload={setSubtitleFile}
+        onRemove={() => setSubtitleFile(null)}
+        value={subtitleFile}
+        error={subtitleError}
+        label="Upload your subtitle"
+        description="Drop your subtitle file here or click to browse"
+      />  */}
       <input type='file' ref={fileField} hidden={true} accept='.vtt,.srt' onChange={onFileAdded} />
     </>
   );

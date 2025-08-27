@@ -41,7 +41,7 @@ function CustomVideoControls(props: CustomVideoControlsProps) {
         if (!video) {
             setAmplifier(getAmplifier(setVideo));
         }
-    }, []);
+    }, [video, setVideo]);
 
     // volume control
     useEffect(() => {
@@ -108,14 +108,14 @@ function CustomVideoControls(props: CustomVideoControlsProps) {
 
             e.preventDefault();
             if (e.code === FORWARD_KEY) {
-                // move forward by 0.5 seconds
+                // move forward by 5 seconds
                 video.currentTime = Math.min(
                     video.duration,
-                    video.currentTime + 0.5
+                    video.currentTime + 5
                 );
             } else if (e.code === BACKWARD_KEY) {
-                // move backward by 0.5 seconds
-                video.currentTime = Math.max(0, video.currentTime - 0.5);
+                // move backward by 5 seconds
+                video.currentTime = Math.max(0, video.currentTime - 5);
             }
 
             displayVideoTime();
@@ -145,7 +145,7 @@ function CustomVideoControls(props: CustomVideoControlsProps) {
         return () => {
             document.removeEventListener('keydown', playOrPause);
         };
-    }, [video]);
+    });
 
     if (showVolume && video) {
         return (

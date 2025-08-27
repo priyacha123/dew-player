@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { SignInButton, useAuth, UserButton } from "@clerk/nextjs";
+import { ModeToggle } from "./ModeToggle";
 
 export default function Navbar() {
   const { isSignedIn } = useAuth();
@@ -46,7 +47,7 @@ export default function Navbar() {
         <NavigationMenu className='hidden md:flex'>
           <NavigationMenuList>
             <NavigationMenuItem>
-              <NavigationMenuTrigger>Products</NavigationMenuTrigger>
+              <NavigationMenuTrigger>Movies</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className='grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]'>
                   {products.map((product) => (
@@ -58,7 +59,7 @@ export default function Navbar() {
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuTrigger>Services</NavigationMenuTrigger>
+              <NavigationMenuTrigger>Series</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className='grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]'>
                   {services.map((service) => (
@@ -70,7 +71,7 @@ export default function Navbar() {
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
+              <NavigationMenuTrigger>Animes</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className='grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]'>
                   {resources.map((resource) => (
@@ -102,17 +103,16 @@ export default function Navbar() {
                 strokeWidth='2'
                 strokeLinecap='round'
                 strokeLinejoin='round'
-                className='h-6 w-6'
+                className='h-6 w-6 m-5'
               >
                 <path d='M12 2L2 7l10 5 10-5-10-5z' />
                 <path d='M2 17l10 5 10-5' />
                 <path d='M2 12l10 5 10-5' />
               </svg>
-              <span className='font-bold'>Brand Name</span>
+              <span className='font-bold'>Dew-Player</span>
             </Link>
           </SheetContent>
         </Sheet>
-
         <div className='ml-auto flex items-center space-x-4'>
           {!isSignedIn ? (
             <SignInButton>
@@ -120,6 +120,7 @@ export default function Navbar() {
                 <Button>Get Started</Button>
               </Link>
             </SignInButton>
+            
           ) : (
             <UserButton
               afterSignOutUrl='/'
@@ -131,6 +132,9 @@ export default function Navbar() {
             />
           )}
           {/* <Button>Get Started</Button> */}
+        </div>
+        <div className="mode pl-6">
+        <ModeToggle />
         </div>
       </div>
     </header>

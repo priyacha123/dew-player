@@ -6,6 +6,7 @@ import Navbar from "@/components/custom/Navbar";
 import Footer from "@/components/custom/Footer";
 import { UploadProvider } from "@/store/upload-context";
 import VideoContextProvider from "@/app/screen/components/VideoContextProvider/VideoContextProvider";
+import { ThemeProvider } from "@/components/shadcn/theme-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,14 +30,21 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang='en'>
+      <html lang='en' suppressHydrationWarning>
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
           <UploadProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
             <VideoContextProvider>
               <Navbar />
               {children}
               <Footer />
             </VideoContextProvider>
+          </ThemeProvider>
           </UploadProvider>
         </body>
       </html>

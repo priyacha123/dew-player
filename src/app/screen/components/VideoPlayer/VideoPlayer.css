@@ -11,6 +11,11 @@
     width: 100%;
 }
 
+.VideoPlayer video track {
+    background-color: black;
+    color: white;
+}
+
 .VideoPlayer video:focus {
     outline: none;
 }
