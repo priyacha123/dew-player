@@ -190,7 +190,6 @@ const VideoControls = (props: VideoControlsProps) => {
     setIsFullscreen(!isFullscreen);
   };
 
-
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
        if (!controls.current) return;

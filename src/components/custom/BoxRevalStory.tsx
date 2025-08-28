@@ -3,6 +3,7 @@ import { BoxReveal } from "@/components/magicui/box-reveal";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 export function BoxRevalStory() {
   return (
+    <>
     <div className='max-w-lg items-center justify-center overflow-hidden pt-8'>
       <BoxReveal boxColor={"#5046e6"} duration={0.5}>
         <p className='text-[3.5rem] font-semibold'>
@@ -36,5 +37,7 @@ export function BoxRevalStory() {
         <Button className='mt-[1.6rem] bg-[#5046e6]'>This gave me this idea</Button>
       </BoxReveal>
     </div>
+    </>
+
   );
 }
